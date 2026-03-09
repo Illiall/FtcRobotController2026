@@ -10,7 +10,9 @@ public class Main extends OpMode{
 
     MecanumDrivetrain drivetrain = new MecanumDrivetrain();
 
-    double forwards, strafe, rotation;
+    double forwards;
+    double strafe;
+    double rotation;
 
     boolean resetYaw;
 
