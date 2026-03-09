@@ -7,9 +7,7 @@ import org.firstinspires.ftc.teamcode.Subsystems.MecanumDrivetrain;
 
 @TeleOp
 public class Main extends OpMode{
-
     MecanumDrivetrain drivetrain = new MecanumDrivetrain();
-
     double forwards;
     double strafe;
     double rotation;
@@ -23,10 +21,12 @@ public class Main extends OpMode{
 
     @Override
     public void loop(){
+        //Driver gamepad
         forwards = -gamepad1.left_stick_y;
         strafe = gamepad1.left_stick_x;
         rotation = gamepad1.right_stick_x;
 
+        //Driver buttons
         resetYaw = gamepad1.left_bumper;
 
         if(resetYaw) {
