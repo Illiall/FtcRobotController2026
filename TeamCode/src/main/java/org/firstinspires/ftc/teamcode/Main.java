@@ -3,11 +3,13 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
+import org.firstinspires.ftc.teamcode.Subsystems.AprilTagVision;
 import org.firstinspires.ftc.teamcode.Subsystems.MecanumDrivetrain;
 
 @TeleOp
 public class Main extends OpMode{
     MecanumDrivetrain drivetrain = new MecanumDrivetrain();
+    AprilTagVision vision = new AprilTagVision();
     double forwards;
     double strafe;
     double rotation;
@@ -17,6 +19,7 @@ public class Main extends OpMode{
     @Override
     public void init(){
         drivetrain.init(hardwareMap);
+        vision.init(hardwareMap, telemetry);
     }
 
     @Override
@@ -28,6 +31,8 @@ public class Main extends OpMode{
 
         //Driver buttons
         resetYaw = gamepad1.left_bumper;
+
+        vision.update();
 
         if(resetYaw) {
             drivetrain.resetYaw();
